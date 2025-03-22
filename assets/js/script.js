@@ -74,6 +74,73 @@ modalCloseBtn.addEventListener("click", testimonialsModalFunc);
 overlay.addEventListener("click", testimonialsModalFunc);
 
 
+// Modal Pop-up for portfolio
+
+document.addEventListener("DOMContentLoaded", function () {
+  const projectItems = document.querySelectorAll(".project-item a");
+  const modal = document.createElement("div");
+  modal.classList.add("project-modal");
+  modal.innerHTML = `
+      <div class="modal-overlay"></div>
+      <div class="modal-portfoliocontent">
+          <span class="close-modal">&times;</span>
+          <figure class="modal-img">
+              <img src="" alt="Project Image">
+          </figure>
+          <div class="modal-header">
+            <h3 class="modal-title"></h3>
+            <p class="modal-category"></p>
+          </div>
+          <p class="modal-desc"></p>
+          <div class="modal-social">
+            <a href="" target="_blank" class="modal-github">View Repo&#8599;</a>
+            <a href="" target="_blank" class="modal-website">View Project&#8599;</a>
+          </div>
+
+      </div>
+  `;
+  document.body.appendChild(modal);
+
+  const modalOverlay = modal.querySelector(".modal-overlay");
+  const closeModal = modal.querySelector(".close-modal");
+  const modalImg = modal.querySelector(".modal-img img");
+  const modalTitle = modal.querySelector(".modal-title");
+  const modalCategory = modal.querySelector(".modal-category");
+  const modalDesc = modal.querySelector(".modal-desc");
+  const modalGithub = modal.querySelector(".modal-github");
+  const modalWebsite = modal.querySelector(".modal-website");
+
+  projectItems.forEach(item => {
+      item.addEventListener("click", function (event) {
+          event.preventDefault();
+          const projectImg = item.querySelector(".project-img img").src;
+          const projectTitle = item.querySelector(".project-title").innerText;
+          const projectCategory = item.querySelector(".project-category").innerText;
+          const projectDesc = item.querySelector(".project-desc")?.innerText || "No description available";
+          
+          // Select correct links
+          const projectGithub = item.closest(".project-item").querySelector(".project-github")?.href || "#";
+          const projectWebsite = item.closest(".project-item").querySelector(".project-website")?.href || "#";
+
+          modalImg.src = projectImg;
+          modalTitle.innerText = projectTitle;
+          modalCategory.innerText = projectCategory;
+          modalDesc.innerText = projectDesc;
+          modalGithub.href = projectGithub;
+          modalWebsite.href = projectWebsite;
+          
+          modal.classList.add("active");
+      });
+  });
+
+  closeModal.addEventListener("click", function () {
+      modal.classList.remove("active");
+  });
+
+  modalOverlay.addEventListener("click", function () {
+      modal.classList.remove("active");
+  });
+});
 
 // custom select variables
 const select = document.querySelector("[data-select]");
