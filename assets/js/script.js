@@ -93,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
           <p class="modal-desc"></p>
           <div class="modal-social">
-            <a href="" target="_blank" class="modal-github">View Repo&#8599;</a>
-            <a href="" target="_blank" class="modal-website">View Project&#8599;</a>
+          <a href="" target="_blank" class="modal-github">View Repo&#8599;</a>
+          <a href="" target="_blank" class="modal-website">View Project&#8599;</a>
           </div>
 
       </div>

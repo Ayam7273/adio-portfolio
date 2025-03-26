@@ -486,6 +486,14 @@ main {
 
 .about-text p { margin-bottom: 15px; }
 
+.review{
+  display: contents;
+  color: #1E48F6;
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  line-height: 1.6;
+}
+
 
 
 /**
@@ -1127,7 +1135,6 @@ main {
 .modal-social a:hover{
   color: #1E48F6;
 }
-
 
 
 
